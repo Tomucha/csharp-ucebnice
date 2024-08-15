@@ -1,0 +1,33 @@
+= C# (sí šarp)
+:author: Tomucha
+:revnumber: 1.0
+:doctype: book
+:encoding: utf-8
+:toc:
+:toc-title: Vopsach
+:toclevels: 3
+:pdf-page-size: A5
+:pdf-page-margin: [1cm]
+:pdf-theme: tutorial
+:pdf-themesdir: theme
+:pdf-fontsdir: theme/fonts
+
+include::./inc/basics.adoc[]
+
+include::./inc/control.adoc[]
+
+== Třídy a objekty
+
+TODO
+
+== Kolekce
+
+TODO
+
+== Práce se soubory
+
+TODO
+
+include::./inc/common_functions.adoc[]
+
+include::./inc/dictionary.adoc[]

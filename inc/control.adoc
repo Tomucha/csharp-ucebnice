@@ -1,0 +1,199 @@
+
+== Podmínky: `if` a `else`
+
+Podmínky `if` a `else` jsou základní stavební kameny rozhodovací logiky v programování. Umožňují nám provádět různé části kódu na základě toho, zda určitá podmínka platí (`true`), nebo neplatí (`false`).
+
+=== `if` podmínka
+
+Příkaz `if` slouží k tomu, abychom vykonali určitý blok kódu pouze tehdy, pokud je daná podmínka pravdivá (`true`).
+
+Příklad:
+
+[code,csharp]
+----
+int pocetZivotu = 3;
+
+if (pocetZivotu > 0)
+{
+    Console.WriteLine("Hrdina je stále naživu.");
+}
+----
+
+* Výraz `pocetZivotu > 0` je podmínka. Pokud je `pocetZivotu` větší než 0, podmínka je `true`.
+* Pokud je podmínka pravdivá, vykoná se kód uvnitř bloku `{ }`, který vypíše zprávu "Hrdina je stále naživu."
+
+<<<
+=== `else` větev
+
+Příkaz `else` se používá k vykonání alternativního bloku kódu, pokud podmínka v `if` není pravdivá (`false`).
+
+Příklad:
+
+[code,csharp]
+----
+int pocetZivotu = 0;
+
+if (pocetZivotu > 0)
+{
+    Console.WriteLine("Hrdina je stále naživu.");
+}
+else
+{
+    Console.WriteLine("Hrdina je mrtvý.");
+}
+----
+
+* Pokud je `pocetZivotu > 0` `true`, vykoná se první blok kódu a vypíše se "Hrdina je stále naživu."
+* Pokud je `pocetZivotu > 0` `false` (což je v tomto případě pravda, protože `pocetZivotu` je 0), vykoná se blok kódu uvnitř `else` a vypíše se "Hrdina je mrtvý."
+
+<<<
+=== `else if` větev
+
+Někdy potřebujeme otestovat více podmínek. K tomu slouží příkaz `else if`, který nám umožní přidat další podmínky mezi `if` a `else`.
+
+Příklad:
+
+[code,csharp]
+----
+int pocetZivotu = 1;
+
+if (pocetZivotu > 1)
+{
+    Console.WriteLine("Hrdina je v dobrém stavu.");
+}
+else if (pocetZivotu == 1)
+{
+    Console.WriteLine("Hrdina je zraněn.");
+}
+else
+{
+    Console.WriteLine("Hrdina je mrtvý.");
+}
+----
+
+* Pokud je `pocetZivotu > 1`, vypíše se "Hrdina je v dobrém stavu."
+* Pokud první podmínka není pravdivá, ale `pocetZivotu == 1` je pravdivé, vykoná se kód v `else if` a vypíše se "Hrdina je zraněn."
+* Pokud ani jedna z předchozích podmínek není pravdivá, vykoná se blok v `else` a vypíše se "Hrdina je mrtvý."
+
+<<<
+
+=== Vnořené podmínky
+
+Podmínky můžeme také vnořovat, což znamená, že do jednoho bloku `if` můžeme vložit další podmínku `if`.
+
+Příklad:
+
+[code,csharp]
+----
+int pocetZivotu = 2;
+bool maStit = true;
+
+if (pocetZivotu > 0)
+{
+    if (maStit)
+    {
+        Console.WriteLine("Je naživu a má štít.");
+    }
+    else
+    {
+        Console.WriteLine("Je naživu, ale nemá štít.");
+    }
+}
+else
+{
+    Console.WriteLine("Hrdina je mrtvý.");
+}
+----
+
+* Nejprve se zkontroluje, zda je hrdina naživu (`pocetZivotu > 0`).
+* Pokud ano, zkontroluje se, zda má hrdina štít (`maStit`).
+* Na základě toho se vypíše příslušná zpráva.
+
+== Cyklus `while`
+
+Cyklus `while` opakuje blok kódu, dokud je daná podmínka pravdivá (`true`). Tento typ cyklu používáme, když nevíme předem, kolikrát bude potřeba cyklus vykonat, ale chceme, aby běžel, dokud platí určitá podmínka.
+
+Příklad:
+
+[code,csharp]
+----
+int pocetKroku = 0;
+
+while (pocetKroku < 5)
+{
+    Console.WriteLine("Hrdina udělal krok.");
+    pocetKroku++;
+}
+----
+
+* `while (pocetKroku < 5)` znamená, že cyklus se bude opakovat, dokud hodnota `pocetKroku` bude menší než 5.
+* Uvnitř cyklu se pokaždé vypíše "Hrdina udělal krok." a hodnota `pocetKroku` se zvýší o 1.
+* Cyklus skončí, jakmile `pocetKroku` dosáhne hodnoty 5.
+
+=== Nekonečný cyklus
+
+Pokud podmínka v cyklu `while` nikdy nebude nepravdivá, cyklus se nikdy nezastaví. Tomu se říká nekonečný cyklus.
+
+[code,csharp]
+----
+while (1==1)
+{
+    Console.WriteLine("Tento cyklus běží navždy.");
+}
+----
+
+* Tento cyklus se nikdy nezastaví, protože podmínka `1==1` je vždy splněna.
+
+== Cyklus `for`
+
+Cyklus `for` je užitečný, když předem víme, kolikrát chceme cyklus vykonat. Typicky se používá pro iteraci přes pole nebo provádění nějaké akce přesně stanovený početkrát.
+
+Struktura cyklu `for` vypadá takto:
+
+[code,csharp]
+----
+for (int i = 0; i < 5; i++)
+{
+    Console.WriteLine("Toto je iterace číslo " + i);
+}
+----
+
+* `int i = 0` je inicializace, kde `i` je počítadlo cyklu (tzv. řídící proměnná) a zde začíná na hodnotě `0` (může začít kdekoliv)
+* `i < 5` je podmínka, která určuje, dokud se cyklus bude opakovat. V tomto případě, dokud je `i` menší než 5 (opět může jít o libovolný bool výraz, obvykle v něm ale figuruje řídící proměnná)
+* `i+\+` znamená, že se hodnota `i` po každé iteraci zvýší o 1 (opět ze může být cokoliv, třeba zvýšení o dvě: `i+=2`)
+
+Každý průchod cyklem (iterace) se vypíše zpráva a `i` se zvýší o 1, dokud nedosáhne hodnoty 5, kdy se cyklus ukončí.
+
+<<<
+
+=== Použití cyklu `for` k iteraci přes pole
+
+Cyklus `for` je často používán k procházení (iteraci) polem, kde potřebujeme přistupovat ke každému prvku pomocí jeho indexu.
+
+Příklad:
+
+[code,csharp]
+----
+int[] cisla = { 1, 2, 3, 4, 5 };
+
+for (int i = 0; i < cisla.Length; i++)
+{
+    Console.WriteLine("Prvek na indexu " + i + " je " + cisla[i]);
+}
+----
+
+* `cisla.Length` vrací délku pole, takže cyklus běží tak dlouho, dokud je `i` menší než počet prvků v poli.
+* `cisla[i]` vrací prvek pole na pozici `i`.
+
+=== Divnofory
+
+For může v praxi vypadat různě. To že se často používá pro počítání od 0 do délky pole neznamená, že je to jedinné použití.
+
+[code,csharp]
+----
+for (;true;) {  /* Nekonečná smyčka */  }
+
+for (int a = 10; a>0; a--) {  /* 10, 9, 8, 7 ... */  }
+
+for (int a = 0; a < 10; a+=2)  {  /* 0, 2, 4 ... */  }
+----

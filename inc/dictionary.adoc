@@ -1,0 +1,83 @@
+
+== Příloha 2: Slovníček programátorských pojmů
+
+Deklarace::
+Deklarace je proces, kdy programu říkáme, že budeme používat nějakou proměnnou nebo funkci, a specifikujeme její jméno a typ (druh hodnoty, kterou může obsahovat).
+
+Inicializace::
+Inicializace je proces, kdy proměnné přiřadíme počáteční hodnotu. Bez inicializace může být proměnná neplatná nebo obsahovat nečekané hodnoty.
+
+Typ::
+Typ určuje, jaké druhy hodnot může proměnná obsahovat a jak s nimi může být manipulováno (např. čísla, texty, pravdivostní hodnoty).
+
+Primitivní typy::
+Primitivní typy jsou základní datové typy, které jsou přímo podporovány jazykem, jako jsou celé číslo (int), desetinné číslo (float), znak (char) nebo logická hodnota (bool).
+
+Operátory::
+Operátory jsou speciální symboly nebo klíčová slova, které umožňují provádět operace s hodnotami, jako je sčítání, porovnávání nebo logické operace.
+
+Výraz::
+Výraz je kombinace hodnot, proměnných, operátorů a funkcí, která se vyhodnotí do jedné hodnoty. Výrazy mohou být aritmetické, logické nebo kombinované.
+
+Bool výraz::
+Bool výraz je výraz, který se vyhodnotí na jednu ze dvou logických hodnot: pravda (true) nebo nepravda (false). Bool výrazu lze použít kdekoliv, kde se bool očekává - while, for, if, ...
+
+Funkce::
+Funkce je blok kódu, který provádí konkrétní úkol. Může přijímat vstupní hodnoty (parametry) a vracet výstupní hodnotu.
+
+Návratový typ::
+Návratový typ určuje, jaký typ hodnoty funkce vrátí, když je dokončena. Může to být například číslo, text nebo logická hodnota.
+
+Tělo funkce::
+Tělo funkce je blok kódu uvnitř funkce, kde jsou definovány instrukce, které se vykonají, když je funkce zavolána.
+
+Pole::
+Pole je datová struktura, která umožňuje uložit více hodnot stejného typu do jedné proměnné. Hodnoty v poli jsou uspořádány a přístupné pomocí indexů.
+
+Index::
+Index je číslo, které označuje konkrétní pozici v poli. Většinou začíná od nuly, což znamená, že první prvek má index 0.
+
+Nekonečný cyklus::
+Nekonečný cyklus je cyklus, který se nikdy nezastaví, protože podmínka pro jeho ukončení není nikdy splněna.
+
+String Interpolation::
+String Interpolation je způsob, jakým můžeme vložit hodnoty proměnných přímo do textového řetězce, aniž bychom museli řetězce a proměnné spojovat.
+
+Substring::
+Substring je část textového řetězce. Můžeme získat podřetězec z většího řetězce určením počáteční a koncové pozice.
+
+Cyklus::
+Cyklus je konstrukce, která umožňuje opakovaně vykonávat blok kódu, dokud je splněna určitá podmínka. Existují různé typy cyklů, jako je `for`, `while` nebo `do-while`.
+
+Definice::
+Definice je proces, kdy nejen deklarujeme proměnnou nebo funkci, ale také jí dáváme konkrétní obsah nebo implementaci. Definice proměnné zahrnuje její deklaraci a inicializaci, zatímco definice funkce zahrnuje její jméno, parametry, návratový typ a tělo.
+
+Proměnná::
+Proměnná je pojmenovaná oblast paměti, kde se ukládají hodnoty, které mohou být během běhu programu měněny.
+
+Konstantní hodnota::
+Konstantní hodnota je hodnota, která se po své inicializaci nemůže změnit. V kódu se používá pro hodnoty, které zůstávají po celý běh programu stejné.
+
+Podmínka::
+Podmínka je výraz, který se vyhodnocuje na pravdivostní hodnotu (true/false) a rozhoduje o tom, zda se určitý blok kódu vykoná, nebo ne.
+
+Parametr::
+Parametr je hodnota, kterou funkce přijímá jako vstup. Parametry jsou specifikovány při deklaraci funkce a používají se při jejím volání.
+
+Blok kódu::
+Blok kódu je skupina instrukcí, která je uzavřena mezi složené závorky `{}` a vykonává se jako celek. Typicky se používá v podmínkách, cyklech nebo funkcích.
+
+Komentář::
+Komentář je text v kódu, který slouží pro vysvětlení nebo poznámky. Komentáře se nevyhodnocují a nemají vliv na běh programu.
+
+Příkaz::
+Příkaz je základní jednotka kódu, která provádí konkrétní akci. Většinou končí středníkem a říká programu, co má udělat.
+
+Debugging::
+Debugging je proces hledání a odstraňování chyb v programu. Tento proces může zahrnovat krokování kódu, kontrolu hodnot proměnných a analyzování chybových hlášek.
+
+Kompilace::
+Kompilace je proces překladu zdrojového kódu do spustitelného formátu, kterému rozumí počítač. Tento proces provádí kompilátor.
+
+Výjimka::
+Výjimka je událost, která se stane během běhu programu a signalizuje, že došlo k chybě. Výjimky lze zachytit a zpracovat, aby se předešlo zhroucení programu.

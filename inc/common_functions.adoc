@@ -1,0 +1,198 @@
+== Příloha 1: Užitečné funkce
+
+V C# existuje řada vestavěných funkcí, které nám usnadňují práci s textem, vstupem a výstupem. V této kapitole si představíme některé z nejčastěji používaných funkcí, jako jsou `WriteLine`, `ReadLine`, `String.Contains`, a další.
+
+=== `Console.WriteLine`
+
+Funkce `Console.WriteLine` se používá k výpisu textu (nebo jiných hodnot) do konzole. Je to základní způsob, jak zobrazit výstup programu uživateli.
+
+Příklad:
+
+[code,csharp]
+----
+Console.WriteLine("Vítej, hrdino!");
+Console.WriteLine(42);
+Console.WriteLine("Tvoje skóre je: " + 100);
+----
+
+* První volání vypíše text "Vítej, hrdino!".
+* Druhé volání vypíše číslo `42`.
+* Třetí volání kombinuje text a číslo, takže výsledkem bude "Tvoje skóre je: 100".
+
+`Console.WriteLine` automaticky přidává nový řádek za každý výstup, takže každý výpis bude na novém řádku.
+
+==== String Interpolation
+
+Při výpisu stringu na uživatelské rozhraní se často využívá String Interpolation, což je způsob, jak jednoduše a přehledně vkládat hodnoty proměnných nebo výrazy přímo do řetězců. Místo toho, abychom používali spojování řetězců pomocí operátoru `+`, můžeme pomocí znaků `$` a složených závorek `{}` vložit hodnoty proměnných přímo do textu. Tento přístup zlepšuje čitelnost kódu a snižuje pravděpodobnost chyb při sestavování řetězců. Příklad:
+
+[code,csharp]
+----
+string jmeno = "Aragorn";
+int vek = 87;
+string zprava = $"Hrdina {jmeno} je {vek} let starý.";
+Console.WriteLine(zprava);
+----
+
+Výstupem bude: "Hrdina Aragorn je 87 let starý."
+
+=== `Console.ReadLine`
+
+Funkce `Console.ReadLine` se používá k načtení vstupu od uživatele. Tato funkce čeká, až uživatel zadá nějaký text a stiskne klávesu Enter, a poté vrátí tento text jako řetězec (`string`).
+
+Příklad:
+
+[code,csharp]
+----
+Console.WriteLine("Zadej své jméno:");
+string jmeno = Console.ReadLine();
+Console.WriteLine("Vítej, " + jmeno + "!");
+----
+
+* Program nejprve vypíše "Zadej své jméno:".
+* Poté čeká na vstup uživatele, který se uloží do proměnné `jmeno`.
+* Nakonec vypíše přivítání s tímto jménem, například "Vítej, Aragorn!".
+
+=== `String.Contains`
+
+Funkce `String.Contains` se používá k ověření, zda určitý podřetězec (kus textu) je obsažen v jiném řetězci. Vrací hodnotu `true`, pokud podřetězec existuje, a `false`, pokud ne.
+
+Příklad:
+
+[code,csharp]
+----
+string hrdina = "Aragorn";
+bool obsahujeA = hrdina.Contains("A");
+bool obsahujeZ = hrdina.Contains("Z");
+
+Console.WriteLine("Obsahuje 'A': " + obsahujeA); // Výstup: true
+Console.WriteLine("Obsahuje 'Z': " + obsahujeZ); // Výstup: false
+----
+
+* `hrdina.Contains("A")` vrátí `true`, protože text "Aragorn" obsahuje znak "A".
+* `hrdina.Contains("Z")` vrátí `false`, protože "Aragorn" neobsahuje znak "Z".
+
+=== `Console.Write`
+
+Funkce `Console.Write` je podobná `Console.WriteLine`, ale nevkládá na konec výstupu nový řádek. Další výstup tedy bude pokračovat na stejném řádku.
+
+Příklad:
+
+[code,csharp]
+----
+Console.Write("Hrdina ");
+Console.Write("Aragorn ");
+Console.Write("bojuje.");
+----
+
+* Výstup bude: "Hrdina Aragorn bojuje." vše na jednom řádku. Někdy se to hodí.
+
+=== `String.ToUpper` a `String.ToLower`
+
+Tyto funkce slouží k převodu celého řetězce na velká nebo malá písmena.
+
+Příklad:
+
+[code,csharp]
+----
+string hrdina = "Aragorn";
+string velkaPismena = hrdina.ToUpper();
+string malaPismena = hrdina.ToLower();
+
+Console.WriteLine(velkaPismena); // Výstup: ARAGORN
+Console.WriteLine(malaPismena);  // Výstup: aragorn
+----
+
+* `ToUpper()` převede všechny znaky na velká písmena.
+* `ToLower()` převede všechny znaky na malá písmena.
+
+=== `String.Length`
+
+Tato vlastnost vrací délku řetězce, tedy počet znaků, které obsahuje.
+
+Příklad:
+
+[code,csharp]
+----
+string hrdina = "Aragorn";
+int delka = hrdina.Length;
+
+Console.WriteLine("Délka jména: " + delka); // Výstup: Délka jména: 7
+----
+
+* `hrdina.Length` vrací `7`, protože jméno "Aragorn" má 7 znaků.
+
+=== `String.Substring`
+
+Tato funkce slouží k získání podřetězce z řetězce, začínající na určité pozici a případně o určité délce.
+
+Příklad:
+
+[code,csharp]
+----
+string hrdina = "Aragorn";
+string castJmena = hrdina.Substring(0, 4);
+
+Console.WriteLine(castJmena); // Výstup: Arag
+----
+
+* `hrdina.Substring(0, 4)` vrátí první čtyři znaky "Aragorn", což je "Arag".
+
+=== `String.Split`
+Metoda `Split` slouží k rozdělení textového řetězce (string) na pole menších řetězců, podle zadaného oddělovače (např. mezera, čárka apod.). Používá se například, když potřebujeme rozdělit větu na jednotlivá slova.
+
+[.source,csharp]
+----
+string kouzelneZaklinadlo = "Abra Kadabra Alakazam";
+string[] slova = kouzelneZaklinadlo.Split(' ');
+
+foreach (string slovo in slova)
+{
+    Console.WriteLine(slovo);
+}
+----
+
+=== `String.Trim`
+Metoda `Trim` odstraňuje bílé znaky (mezery, tabulátory, nové řádky) z začátku a konce řetězce. Je užitečná, když potřebujeme vyčistit vstup uživatele od náhodně přidaných mezer.
+
+[.source,csharp]
+----
+string zaklinadlo = "  Abrakadabra!  ";
+string cisteZaklinadlo = zaklinadlo.Trim();
+
+Console.WriteLine(cisteZaklinadlo); // Vypíše "Abrakadabra!"
+----
+
+=== `Random`
+Třída `Random` slouží k generování náhodných čísel. Je často využívána, například když chceme náhodně rozhodnout výsledek nějaké akce (např. hod kostkou).
+
+[.source,csharp]
+----
+Random nahodnyGenerator = new Random();
+
+// Generuje číslo mezi 1 a 6(! ne 7!)
+int nahodneCislo = nahodnyGenerator.Next(1, 7);
+
+Console.WriteLine($"Hodil jsi kostkou a padlo číslo: {nahodneCislo}");
+----
+
+=== `Int.Parse`
+Metoda `Int.Parse` slouží k převodu textového řetězce, který obsahuje číslo, na celočíselnou hodnotu (typ `int`). Je užitečná, když máme například číslo jako text a potřebujeme s ním provést nějakou matematickou operaci.
+
+[.source,csharp]
+----
+string textoveCislo = "42";
+int cislo = Int.Parse(textoveCislo);
+
+Console.WriteLine($"Text '{textoveCislo}' bylo převedeno na číslo {cislo}");
+----
+
+=== `Thread.Sleep`
+Metoda `Thread.Sleep` zastaví provádění programu na zadaný počet milisekund. To může být užitečné například při simulaci čekání nebo při zpomalování opakujících se akcí.
+
+[.source,csharp]
+----
+Console.WriteLine("Příprava kouzla...");
+Thread.Sleep(2000); // Zastaví program na 2 sekundy
+
+Console.WriteLine("Kouzlo je připraveno!");
+----

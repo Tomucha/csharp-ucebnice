@@ -1,0 +1,94 @@
+
+== Příklad programu
+
+[code,csharp]
+----
+string[] actorsAndRoles = {
+    "Robert Downey Jr. - Iron Man",
+    "Chris Evans - Captain America",
+    "Chris Hemsworth - Thor",
+    "Scarlett Johansson - Black Widow",
+    "Mark Ruffalo - Hulk",
+    "Jeremy Renner - Hawkeye"
+};
+
+string[] searchArray = ConvertToLowercaseArray(actorsAndRoles);
+
+string userInput = "";
+
+while (userInput != "konec")
+{
+    Console.WriteLine("Zadej jméno nebo roli z MCU" +
+                      " (nebo 'konec' pro ukončení):");
+
+    userInput = Console.ReadLine().ToLower();
+
+    if (userInput != "konec")
+    {
+        PrintMatchingEntries(
+            actorsAndRoles, searchArray, userInput
+        );
+    }
+}
+
+
+
+
+
+string[] ConvertToLowercaseArray(string[] inputArray)
+{
+    string[] lowercaseArray = new string[inputArray.Length];
+    for (int i = 0; i < inputArray.Length; i++)
+    {
+        lowercaseArray[i] = inputArray[i].ToLower();
+    }
+    return lowercaseArray;
+}
+
+void PrintMatchingEntries(string[] originalArray,
+                                    string[] lowercaseArray,
+                                    string userInput)
+{
+    bool found = false;
+    for (int i = 0; i < lowercaseArray.Length; i++)
+    {
+        if (lowercaseArray[i].Contains(userInput))
+        {
+            Console.WriteLine(originalArray[i]);
+            found = true;
+        }
+    }
+    if (!found)
+    {
+        Console.WriteLine("Nenalezeno!");
+    }
+}
+----
+
+Tento program umožňuje uživateli vyhledávat herce a jejich role z Marvel Cinematic Universe (MCU). Uživatel zadá jméno herce nebo název role, a program prohledá seznam herců a rolí, které odpovídají zadanému vstupu, bez ohledu na velikost písmen. Výsledky jsou vypsány na obrazovku.
+
+=== Struktura programu
+
+Program je rozdělen do několika částí, které jsou implementovány pomocí funkcí:
+
+1. *Pole s herci a rolemi*:: Program začíná deklarací pole `actorsAndRoles`, které obsahuje seznam herců a jejich rolí v MCU.
+
+2. *Funkce `ConvertToLowercaseArray`*:: Tato funkce přijme pole stringů jako vstup a vrátí nové pole, ve kterém jsou všechny texty převedeny na malá písmena. Tím se zajišťuje, že vyhledávání nebude citlivé na velikost písmen (case-insensitive: Chris vs. chris).
+
+3. *Hlavní smyčka `while`*:: Program se nachází ve smyčce, která opakovaně čte vstup od uživatele. Smyčka běží, dokud uživatel nezadá slovo "konec". Pokud je zadán jiný text, program převede tento vstup na malá písmena a poté zavolá funkci, která vyhledá odpovídající záznamy v poli.
+
+4. *Funkce `PrintMatchingEntries`*:: Tato funkce prohledá pole převedené na malá písmena a porovná každý prvek s uživatelským vstupem. Pokud najde shodu, vytiskne odpovídající položku z původního pole (s velkými písmeny) na obrazovku. Pokud se žádná shoda nenajde, vypíše se zpráva "Nenalezeno!".
+
+=== Vzorový vstup a výstup
+
+*Příklad 1:*
+- Vstup: "iron man"
+- Výstup: "Robert Downey Jr. - Iron Man"
+
+*Příklad 2:*
+- Vstup: "Scarlett"
+- Výstup: "Scarlett Johansson - Black Widow"
+
+*Příklad 3:*
+- Vstup: "spiderman"
+- Výstup: "Nenalezeno!"
